@@ -1,8 +1,8 @@
-[![Build Status](https://travis-ci.org/zoffixznet/perl6-WWW-P6lert.svg)](https://travis-ci.org/zoffixznet/perl6-WWW-P6lert)
+[![Build Status](https://travis-ci.org/zoffixznet/perl6-Rashnl.svg)](https://travis-ci.org/zoffixznet/perl6-Rashnl)
 
 # NAME
 
-`WWW::P6lert` - Implementation of [alerts.perl6.org](https://alerts.perl6.org) API
+`Rashnl` - Faster and better Rationals 
 
 # SYNOPSIS
 
@@ -13,12 +13,12 @@
 #### REPOSITORY
 
 Fork this module on GitHub:
-https://github.com/zoffixznet/perl6-WWW-P6lert
+https://github.com/zoffixznet/perl6-Rashnl
 
 #### BUGS
 
 To report bugs or request features, please use
-https://github.com/zoffixznet/perl6-WWW-P6lert/issues
+https://github.com/zoffixznet/perl6-Rashnl/issues
 
 #### AUTHOR
 
