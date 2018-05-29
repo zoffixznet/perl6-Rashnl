@@ -1,0 +1,17 @@
+{
+    "perl"         : "6.c",
+    "name"         : "Rashnl",
+    "license"      : "Artistic-2.0",
+    "version"      : "1.001001",
+    "description"  : "Faster and better Rationals",
+    "tags"         : [ "math" ],
+    "depends"      : [ ],
+    "test-depends" : [
+        "Testo"
+    ],
+    "provides"     : {
+        "lib" : "lib/Rashnl.pm6"
+    },
+    "authors"       : ["Zoffix Znet"],
+    "support"       : {"source" : "https://github.com/zoffixznet/perl6-Rashnl.git"}
+}
