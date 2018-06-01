@@ -1,3 +1,3 @@
-use lib <lib ../>;
+use lib <lib>;
 use Rashnl;
-say 1·5 + ·56;
+dd  -1·5;
