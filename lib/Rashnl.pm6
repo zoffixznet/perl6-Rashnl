@@ -7,17 +7,19 @@ has int $.fat;
 my constant FAT_LIMIT = 2⁶⁴;
 
 sub REDUCE (\n, \d) {
-  when not d { Rashnl.bless: :nu(n > 0 ?? 1 !! n ?? -1 !! 0), :0de }
+  when not d { ::?CLASS.bless: :nu(n > 0 ?? 1 !! n ?? -1 !! 0), :0de }
 
   my \gcd := n gcd d;
   my $nu  := n div gcd;
   my $de  := d div gcd;
   if $de < 0 { $nu := -$nu; $de := -$de; }
-  Rashnl.bless: :$nu, :$de, :fat($de ≥ FAT_LIMIT)
+  ::?CLASS.bless: :$nu, :$de, :fat($de ≥ FAT_LIMIT)
 }
 
-sub  infix:<·> (Int \i, Int \f) is export { REDUCE i×$_+f, $_ with 10**f.chars }
-sub prefix:<·> (        Int \f) is export { &[·](0,f) }
+sub  infix:<·> (Int \i, Int \f) is tighter(&prefix:<->) is export {
+  REDUCE i×$_+f, $_ with 10**f.chars
+}
+sub prefix:<·> (        Int \f) is tighter(&prefix:<->) is export { &[·](0,f) }
 
 method new (Int \nu, Int \de --> ::?CLASS:D) { REDUCE nu, de }
 
@@ -49,3 +51,7 @@ multi method Num (::?CLASS:D:) { Num($!nu / $!de) }
 proto method Rat (|) { * }
 multi method Rat (::?CLASS:U:) { Rat }
 multi method Rat (::?CLASS:D:) { Rat.new: $!nu, $!de }
+
+CORE::<&prefix:<->>.add_dispatchee: multi prefix:<-> (Rashnl \r) {
+    Rashnl.bless: :nu(-r.nu), :de(r.de), :fat(r.fat)
+}
